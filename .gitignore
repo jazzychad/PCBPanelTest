@@ -1,4 +1,8 @@
 PCBPanelTest-backups/
 *~
 *.*~
+kibot/
+panel.*
+panel_configd.*
+fp-info-cache
 

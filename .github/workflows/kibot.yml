@@ -1,0 +1,21 @@
+name: Kibot Tasks
+
+on: [push, workflow_dispatch]
+
+jobs:
+  kibot_task:
+    uses: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: INTI-CMNB/KiBot@v2_k6
+      with:
+        config: 'kibot_generated.kibot.yaml'
+        dir: kibot_output
+        schema: 'PCBPanelTest.kicad_sch'
+        board: 'PCBPanelTest.kicad_pcb'
+    - name: upload results
+      uses: actions/upload-artifact@v3
+      with:
+        name: kibot_files
+        path: kibot_output
+
